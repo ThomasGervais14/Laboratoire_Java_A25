@@ -25,7 +25,11 @@ public class ListeNotes {
      */
     @Override
     public String toString() {
-        String str = ""; //Chaine à construire
+        String str = "["; //Chaine à construire
+        for (int i=0;  i<notes.length; i++) {
+            str += notes[i] + ";";
+        }
+        str += "]";
         return str;
     }
     /**
@@ -33,14 +37,26 @@ public class ListeNotes {
      * @return la moyenne des notes du tableau de notes
      */
     public double getMoyenne() {
-        throw new NotImplementedException();
+        double moyenne = 0;
+        int diviseur = 0;
+        for (int i=0;  i<notes.length;  i++) {
+            moyenne += notes[i];
+            diviseur++;
+        }
+        return moyenne /=diviseur;
     }
     /**
      * Retourne la plus petite valeur du tableau de notes
      * @return la plus petite valeur du tableau de notes
      */
     public double getMinimum() {
-        throw new NotImplementedException();
+        double min = notes[0];
+        for (int i=0;  i<notes.length;  i++) {
+            if (notes[i] < min) {
+                min = notes[i];
+            }
+        }
+        return min;
     }
     /**
      * Retourne un tableau contenant toutes les notes entre un minimum et un maximum. Le tableau retourné ne doit pas
@@ -50,7 +66,16 @@ public class ListeNotes {
      * @return tableau contenant toutes les notes du tableau comprises entre min et max, inclusivement
      */
     public double[] getNotesParIntervalle(double min, double max) {
-        throw new NotImplementedException();
+        String str = "";
+        int nbChiffresIntervalle = 0;
+        double[] temp = new double[notes.length];
+        for (int i=0;  i<notes.length;  i++) {
+            if (notes[i] >= min && notes[i] <= max) {
+                temp[nbChiffresIntervalle] = notes[i];
+                nbChiffresIntervalle++;
+            }
+        }
+        return temp;
     }
     /**
      * Trie le tableau des notes par ordre croissant

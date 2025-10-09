@@ -2,6 +2,7 @@ package com.tgervais.semaine3.demos;
 
 import com.tgervais.semaine3.classes.ListeNotes;
 
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -29,6 +30,12 @@ public class Programme1 {
                     break;
                 case 'v' : //rechercher des notes d'un intervalle
                     System.out.println("=> Rechercher des notes d'un intervalle.");
+                    System.out.print("Valeur inférieure de l'intervalle: ");
+                    double min = clavier.nextDouble();
+                    System.out.print("Valeur supérieure de l'intervalle: ");
+                    double max = clavier.nextDouble();
+                    clavier.nextLine();
+                    System.out.println(Arrays.toString(liste1.getNotesParIntervalle(min, max)));
                     break;
                 case 't' : //tri
                     liste1.trier();
